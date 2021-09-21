@@ -1,24 +1,24 @@
 import Head from 'next/head'
 import {useAuth} from "@/lib/auth";
-import {Button, Code, Heading, Text} from "@chakra-ui/react";
+import {Box, Button, Code, Flex, Text} from "@chakra-ui/react";
+import {LogoIcon} from "@/components/icons";
 
 export default function Home() {
   const auth = useAuth();
   return (
-    <div>
+    <Flex as="main" direction="column" align="center" justify="center" h="100vh">
       <Head>
         <title>Fast Feedback</title>
       </Head>
-
-      <main>
-        <Heading>Fast Feedback</Heading>
-
-        <Text>Current user: <Code>{auth.user?.name ?? 'None'}</Code></Text>
-        {auth.user ?
-          <Button onClick={(e) => auth.signout()}>Sign Out</Button> :
-          <Button onClick={(e) => auth.signinWithGithub()}>Sign In</Button>
-        }
-      </main>
-    </div>
+      <LogoIcon boxSize={12} />
+      {auth.user ?
+        (
+          <Button variant="link" mt={4} onClick={(e) => auth.signout()}>Sign Out</Button>
+        ) :
+        (
+          <Button variant="link" mt={4} onClick={(e) => auth.signinWithGithub()}>Sign In</Button>
+        )
+      }
+    </Flex>
   )
 }
