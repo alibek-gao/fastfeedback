@@ -5,6 +5,7 @@ import {useAuth} from "../lib/auth";
 
 export default function Home() {
   const auth = useAuth();
+  console.log(auth.user)
   return (
     <div className={styles.container}>
       <Head>
@@ -23,9 +24,11 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <button onClick={(e) => auth.signinWithGithub()}>Sign In</button>
-        <div>{auth.user?.displayName ?? ''}</div>
-        <button onClick={(e) => auth.signout()}>Sign Out</button>
+        <div>{auth.user?.name ?? ''}</div>
+        {auth.user ?
+          <button onClick={(e) => auth.signout()}>Sign Out</button> :
+          <button onClick={(e) => auth.signinWithGithub()}>Sign In</button>
+        }
 
       </main>
 
