@@ -19,8 +19,8 @@ const EmptyState = () => (
       align="center"
       direction="column"
     >
-      <Heading as="h3" size="lg" mb={2}>You haven't added any sites.</Heading>
-      <Text mb={4}>Welcome! Let's get started.</Text>
+      <Heading as="h3" size="lg" mb={2}>You haven&apos;t added any sites.</Heading>
+      <Text mb={4}>Welcome! Let&apos;s get started.</Text>
       <AddSiteModal />
     </Flex>
   </DashboardShell>
