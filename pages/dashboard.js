@@ -13,8 +13,6 @@ export default function Home() {
   const { user } = useAuth();
   const { data } = useSWR('/api/sites', fetcher);
 
-  console.log(data);
-
   if(!data) {
     return (
       <DashboardShell>
